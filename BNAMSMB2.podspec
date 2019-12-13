@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BNAMSMB2"
-  s.version      = "2.6.1"
+  s.version      = "2.6.2"
   s.summary      = "Swift framework to connect SMB2/3 shares"
 
   # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/amosavian/AMSMB2.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/kasimok/BNAMSMB2.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
