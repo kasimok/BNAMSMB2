@@ -131,7 +131,7 @@ final class SMB2FileHandle {
     
     /// This value allows softer streaming
     var optimizedReadSize: Int {
-        return min(maxReadSize, 32 * 1024)
+        return min(maxReadSize, 1048576)
     }
     
     @discardableResult
