@@ -6,20 +6,6 @@
 	objectVersion = 50;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		F294CEC023A36B31008FAB34 /* AMSMB2-Universal */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = F294CEC323A36B31008FAB34 /* Build configuration list for PBXAggregateTarget "AMSMB2-Universal" */;
-			buildPhases = (
-				F294CEC423A36B3D008FAB34 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = "AMSMB2-Universal";
-			productName = "AMSMB2-Universal";
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		790FA33920B2CC5600578C8A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790FA33820B2CC5600578C8A /* Extensions.swift */; };
 		7957E1F220F1EEB100F96CE4 /* Fsctl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7957E1F120F1EEB100F96CE4 /* Fsctl.swift */; };
@@ -203,9 +189,6 @@
 						CreatedOnToolsVersion = 9.3.1;
 						LastSwiftMigration = 1020;
 					};
-					F294CEC023A36B31008FAB34 = {
-						CreatedOnToolsVersion = 11.3;
-					};
 				};
 			};
 			buildConfigurationList = 79FDFE4E20AD439F00749FB5 /* Build configuration list for PBXProject "AMSMB2" */;
@@ -223,7 +206,6 @@
 			targets = (
 				79FDFE5320AD439F00749FB5 /* AMSMB2 */,
 				79FDFE5C20AD439F00749FB5 /* AMSMB2Tests */,
-				F294CEC023A36B31008FAB34 /* AMSMB2-Universal */,
 			);
 		};
 /* End PBXProject section */
@@ -244,26 +226,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		F294CEC423A36B3D008FAB34 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n# 2\n# Setup some constants for use later on.\nFRAMEWORK_NAME=\"AMSMB2\"\nOUTPUT_DIR=\"${SRCROOT}/build\"\n# 3\n# If remnants from a previous build exist, delete them.\nif [ -d \"${OUTPUT_DIR}\" ]; then\nrm -rf \"${OUTPUT_DIR}\"\nfi\n# 4\n# Build the framework for device and for simulator (using\n# all needed architectures).\n\nxcodebuild -project \"${FRAMEWORK_NAME}.xcodeproj\" -scheme \"${FRAMEWORK_NAME}\" -configuration Release -arch arm64 -arch armv7 -arch armv7s only_active_arch=no defines_module=yes -sdk \"iphoneos\" -derivedDataPath \"${OUTPUT_DIR}\"\nxcodebuild -project \"${FRAMEWORK_NAME}.xcodeproj\" -scheme \"${FRAMEWORK_NAME}\" -configuration Release -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk \"iphonesimulator\" -derivedDataPath \"${OUTPUT_DIR}\"\n\n# 5\n# Remove .framework file if exists from previous run.\nif [ -d \"${OUTPUT_DIR}/${FRAMEWORK_NAME}.framework\" ]; then\nrm -rf \"${OUTPUT_DIR}/${FRAMEWORK_NAME}.framework\"\nfi\n# 6\n# Copy the device version of framework.\ncp -r \"${OUTPUT_DIR}/Build/Products/Release-iphoneos/${FRAMEWORK_NAME}.framework\" \"${OUTPUT_DIR}/${FRAMEWORK_NAME}.framework\"\n# 7\n# Replace the framework executable within the framework with\n# a new version created by merging the device and simulator\n# frameworks' executables with lipo.\nlipo -create -output \"${OUTPUT_DIR}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${OUTPUT_DIR}/Build/Products/Release-iphoneos/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${OUTPUT_DIR}/Build/Products/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"\n# 8\n# Copy the Swift module mappings for the simulator into the\n# framework. The device mappings already exist from step 6.\ncp -r \"${OUTPUT_DIR}/Build/Products/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\" \"${OUTPUT_DIR}/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		79FDFE4F20AD439F00749FB5 /* Sources */ = {
@@ -448,7 +410,7 @@
 					"@loader_path/../Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/libsmb2/lib";
-				MARKETING_VERSION = 2.6.0;
+				MARKETING_VERSION = 2.7.1;
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[sdk=appletvos*]" = "-lsmb2-tvos";
 				"OTHER_LDFLAGS[sdk=appletvsimulator*]" = "-lsmb2-tvos";
@@ -484,7 +446,7 @@
 					"@loader_path/../Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/libsmb2/lib";
-				MARKETING_VERSION = 2.6.0;
+				MARKETING_VERSION = 2.7.1;
 				"OTHER_LDFLAGS[sdk=appletvos*]" = "-lsmb2-tvos";
 				"OTHER_LDFLAGS[sdk=appletvsimulator*]" = "-lsmb2-tvos";
 				"OTHER_LDFLAGS[sdk=iphoneos*]" = "-lsmb2-ios";
@@ -544,24 +506,6 @@
 			};
 			name = Release;
 		};
-		F294CEC123A36B31008FAB34 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T2DT6C6U3X;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		F294CEC223A36B31008FAB34 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T2DT6C6U3X;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -588,15 +532,6 @@
 			buildConfigurations = (
 				79FDFE6C20AD439F00749FB5 /* Debug */,
 				79FDFE6D20AD439F00749FB5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F294CEC323A36B31008FAB34 /* Build configuration list for PBXAggregateTarget "AMSMB2-Universal" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F294CEC123A36B31008FAB34 /* Debug */,
-				F294CEC223A36B31008FAB34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

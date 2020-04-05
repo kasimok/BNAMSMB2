@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/evilisn_jiang/Desktop/AMSMB2-2.6.0/build/Build/Products/Release-iphoneos/AMSMB2.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/evilisn_jiang/Desktop/AMSMB2-2.6.0/build/Build/Intermediates.noindex/AMSMB2.build/Release-iphoneos/AMSMB2.build/unextended-module.modulemap",
+    }]
+  }]
+}

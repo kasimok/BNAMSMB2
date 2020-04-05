@@ -1,0 +1,13 @@
+version: "Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
+options: "b60fa186098c0ad12bdcf1efeaa7403e"
+build_time: [1576223335, 779908000]
+inputs:
+  "/Users/evilisn_jiang/Desktop/AMSMB2-2.6.0/AMSMB2/Context.swift": [9223372036, 854775807]
+  "/Users/evilisn_jiang/Desktop/AMSMB2-2.6.0/AMSMB2/Extensions.swift": [9223372036, 854775807]
+  "/Users/evilisn_jiang/Desktop/AMSMB2-2.6.0/AMSMB2/AMSMB2.swift": [9223372036, 854775807]
+  "/Users/evilisn_jiang/Desktop/AMSMB2-2.6.0/AMSMB2/MSRPC.swift": [9223372036, 854775807]
+  "/Users/evilisn_jiang/Desktop/AMSMB2-2.6.0/AMSMB2/ObjCCompat.swift": [9223372036, 854775807]
+  "/Users/evilisn_jiang/Desktop/AMSMB2-2.6.0/AMSMB2/Fsctl.swift": [9223372036, 854775807]
+  "/Users/evilisn_jiang/Desktop/AMSMB2-2.6.0/AMSMB2/FileHandle.swift": [9223372036, 854775807]
+  "/Users/evilisn_jiang/Desktop/AMSMB2-2.6.0/AMSMB2/Parsers.swift": [9223372036, 854775807]
+  "/Users/evilisn_jiang/Desktop/AMSMB2-2.6.0/AMSMB2/Directory.swift": [9223372036, 854775807]

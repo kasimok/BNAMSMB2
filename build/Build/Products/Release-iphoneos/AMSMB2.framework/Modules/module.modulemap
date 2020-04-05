@@ -1,0 +1,11 @@
+framework module AMSMB2 {
+  umbrella header "AMSMB2.h"
+
+  export *
+  module * { export * }
+}
+
+module AMSMB2.Swift {
+    header "AMSMB2-Swift.h"
+    requires objc
+}

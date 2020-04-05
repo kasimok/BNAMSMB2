@@ -23,6 +23,14 @@
 extern "C" {
 #endif
 
+/* Data representation */
+/* Integer */
+#define DCERPC_DR_BIG_ENDIAN                    0x00
+#define DCERPC_DR_LITTLE_ENDIAN                 0x10
+/* Character */
+#define DCERPC_DR_ASCII                         0x00
+#define DCERPC_DR_EBCDIC                        0x01
+
 struct dcerpc_context;
 struct dcerpc_pdu;
 
@@ -33,7 +41,8 @@ typedef int (*dcerpc_coder)(struct dcerpc_context *dce, struct dcerpc_pdu *pdu,
 
 enum ptr_type {
         PTR_REF    = 0,
-        PTR_UNIQUE = 1
+        PTR_UNIQUE = 1,
+        PTR_FULL   = 2
 };
 
 struct dcerpc_uuid {
@@ -68,7 +77,6 @@ struct smb2_context *dcerpc_get_smb2_context(struct dcerpc_context *dce);
 void *dcerpc_get_pdu_payload(struct dcerpc_pdu *pdu);
 
 int dcerpc_open_async(struct dcerpc_context *dce, dcerpc_cb cb, void *cb_data);
-int dcerpc_bind_async(struct dcerpc_context *dce, dcerpc_cb cb, void *cb_data);
 int dcerpc_call_async(struct dcerpc_context *dce, int opnum,
                       dcerpc_coder encoder, void *ptr,
                       dcerpc_coder decoder, int decode_size,
@@ -99,8 +107,8 @@ int dcerpc_process_deferred_pointers(struct dcerpc_context *ctx,
 void dcerpc_add_deferred_pointer(struct dcerpc_context *ctx,
                                  struct dcerpc_pdu *pdu,
                                  dcerpc_coder coder, void *ptr);
-
-
-
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* !_LIBSMB2_DCERPC_H_ */
